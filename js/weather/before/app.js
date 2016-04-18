@@ -10,9 +10,9 @@
 
     function doStuff(res) {
         var data = JSON.parse(res.target.response);
-        console.log("Current temp", data.main.temp);
+        var tempDisplay = document.getElementById("temp-display");
+        tempDisplay.innerHTML = data.main.temp;
     }
-
 
     function buildDayRow(day) {
         return `
