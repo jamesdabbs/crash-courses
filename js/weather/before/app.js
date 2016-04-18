@@ -1,5 +1,7 @@
 ;(function() {
     console.log("It works")
     var s = document.getElementById("day-table-body");
-    s.innerHTML = "<tr><td>Monday</td><td>";
+
+    var dayName = "Tuesday";
+    s.innerHTML = `<tr><td>${dayName}</td><td>`;
 })();
