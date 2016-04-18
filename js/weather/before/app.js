@@ -1,4 +1,7 @@
 ;(function() {
+    console.log("It works")
+    var s = document.getElementById("day-table-body");
+
     // Go get the weather for Detroit
     var req = new XMLHttpRequest();
     req.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=Detroit&APPID=8e2d87f18292dd1305f3d6fbde147405');
@@ -6,11 +9,10 @@
     req.send();
 
     function doStuff(res) {
-        console.log("We got a response", res);
+        var data = JSON.parse(res.target.response);
+        console.log("Current temp", data.main.temp);
     }
 
-    console.log("It works")
-    var s = document.getElementById("day-table-body");
 
     function buildDayRow(day) {
         return `
