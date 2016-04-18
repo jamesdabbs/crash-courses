@@ -8,16 +8,25 @@
     req.onload = doStuff;
     req.send();
 
+    function convertApiResponseDataIntoTheRightFormatForDays(responseData) {
+        console.log("response data is currently", responseData);
+
+        // TODO: we didn't get here, and this is left as an exercise for the reader
+        // It needs to look at responseData and produce something like this (which we
+        // just hardcode for now)
+        return [
+            { name: "Tuesday", weather: "H", high: 79, low: 55 },
+            { name: "Tuesday", weather: "R", high: 81, low: 61 },
+            { name: "Thursday", weather: "R", high: 72, low: 57 },
+        ]
+    }
+
     function doStuff(res) {
         var data = JSON.parse(res.target.response);
         var tempDisplay = document.getElementById("temp-display");
         tempDisplay.innerHTML = kToF(data.main.temp);
 
-        var days = [
-            { name: "Tuesday", weather: "H", high: 79, low: 55 },
-            { name: "Tuesday", weather: "R", high: 81, low: 61 },
-            { name: "Thursday", weather: "R", high: 72, low: 57 },
-        ]
+        var days = convertApiResponseDataIntoTheRightFormatForDays(data);
 
         renderForecast(days)
     }
