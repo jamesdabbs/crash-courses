@@ -11,7 +11,11 @@
     function doStuff(res) {
         var data = JSON.parse(res.target.response);
         var tempDisplay = document.getElementById("temp-display");
-        tempDisplay.innerHTML = data.main.temp;
+        tempDisplay.innerHTML = kToF(data.main.temp);
+    }
+
+    function kToF(k) {
+        return Math.round(k * (9 / 5) - 459.67);
     }
 
     function buildDayRow(day) {
