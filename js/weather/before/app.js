@@ -13,7 +13,13 @@
         var tempDisplay = document.getElementById("temp-display");
         tempDisplay.innerHTML = kToF(data.main.temp);
 
-        renderForecast()
+        var days = [
+            { name: "Tuesday", weather: "H", high: 79, low: 55 },
+            { name: "Tuesday", weather: "R", high: 81, low: 61 },
+            { name: "Thursday", weather: "R", high: 72, low: 57 },
+        ]
+
+        renderForecast(days)
     }
 
     function kToF(k) {
@@ -30,13 +36,7 @@
           </tr>`;
     }
 
-    function renderForecast() {
-        var days = [
-            { name: "Tuesday", weather: "H", high: 79, low: 55 },
-            { name: "Tuesday", weather: "R", high: 81, low: 61 },
-            { name: "Thursday", weather: "R", high: 72, low: 57 },
-        ]
-
+    function renderForecast(days) {
         var html = "";
         days.forEach(function(day) {
             html = html + buildDayRow(day);
